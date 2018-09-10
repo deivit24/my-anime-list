@@ -1,13 +1,23 @@
+$background: #f4f4f4;
+
 .success, .error {
   color:white;
   padding: 5px;
   margin: 5px 0 15px 0;
 }
 
-.sucess {
+.success {
   background: green;
 }
 
 .error {
   background: red;
+}
+
+body{
+  background: $background;
+
+  h1{
+    margin-top: 25px;
+  }
 }

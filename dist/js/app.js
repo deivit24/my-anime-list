@@ -24,6 +24,27 @@ UI.prototype.addAnimeToList = function (anime) {
   list.appendChild(row);
 }
 
+// show alert
+
+UI.prototype.showAlert = function (message, className) {
+  // create div
+  const div = document.createElement('div');
+  // add classes
+  div.className = `alert ${className}`;
+  // add text
+  div.appendChild(document.createTextNode(message));
+  // GET parent
+  const container = document.querySelector('.container');
+  // get form
+  const form = document.querySelector('#anime-form');
+  // insert alert
+  container.insertBefore(div, form);
+
+  // timeout after 3 seconds
+  setTimeout(function(){
+    document.querySelector('.alert').remove();
+  }, 3000);
+}
 // Clear fields
 
 UI.prototype.clearFields = function(){
@@ -47,13 +68,25 @@ document.getElementById('anime-form').addEventListener('submit', function(e) {
 
   const ui = new UI();
 
-  // add book to list
+  // validate
 
-  ui.addAnimeToList(anime);
+  if (title === '' || author === '' || year === '') {
+    // error
+    ui.showAlert('Please fill in all fields', 'error');
+  } else {
+// add book to list
 
-  // clear fileds
+ui.addAnimeToList(anime);
 
-  ui.clearFields();
+// show success
+ui.showAlert('Anime Added!', 'success');
+
+// clear fileds
+
+ui.clearFields();
+  }
+
+  
  
  
   

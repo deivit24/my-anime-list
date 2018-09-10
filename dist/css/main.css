@@ -3,8 +3,13 @@
   padding: 5px;
   margin: 5px 0 15px 0; }
 
-.sucess {
+.success {
   background: green; }
 
 .error {
   background: red; }
+
+body {
+  background: #f4f4f4; }
+  body h1 {
+    margin-top: 25px; }
